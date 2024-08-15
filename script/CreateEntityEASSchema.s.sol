@@ -5,11 +5,11 @@ import {Script, console} from "forge-std/Script.sol";
 import {SchemaRegistry} from "eas-contracts/SchemaRegistry.sol";
 import {EntitiesResolver} from "../src/EntitiesResolver.sol";
 
-contract CreateNewEASSchemaScript is Script {
+contract CreateEntityEASSchemaScript is Script {
     SchemaRegistry schemaRegistry =
         SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
     EntitiesResolver entitiesResolver =
-        EntitiesResolver(payable(0x1622c09522f429Ce949dBc3C520D4004ddCcbb06));
+        EntitiesResolver(payable(0x69dAbd289CF35263b3940B7a0b495B10f9F2e254));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");

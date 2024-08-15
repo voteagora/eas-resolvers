@@ -6,7 +6,7 @@ import {EntitiesResolver} from "../src/EntitiesResolver.sol";
 import {EAS} from "eas-contracts/EAS.sol";
 import {TransparentUpgradeableProxy} from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
 
-contract DeployEntitiesResolverScript is Script {
+contract DeployEntityResolverScript is Script {
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
@@ -30,9 +30,6 @@ contract DeployEntitiesResolverScript is Script {
 
         vm.stopBroadcast();
 
-        console.log(
-            "Deployed ProjectAttesterResolver at address:",
-            address(proxy)
-        );
+        console.log("Deployed EntityResolver at address:", address(proxy));
     }
 }
