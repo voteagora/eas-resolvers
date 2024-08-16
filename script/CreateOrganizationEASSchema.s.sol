@@ -17,7 +17,7 @@ contract CreateOrganizationEASSchemaScript is Script {
 
         // Create new EAS schema
         bytes32 schemaId = schemaRegistry.register(
-            "uint256 farcasterID, string name, bytes32 parentOrgUID, bytes32[] projects, uint8 metadataType, string metadataUrl",
+            "bytes32 refUID, uint256 farcasterID, string name, bytes32 parentOrgUID, bytes32[] projects, uint8 metadataType, string metadataUrl",
             entitiesResolver,
             true
         );
