@@ -12,8 +12,12 @@ contract EntitiesResolver is UpgradableSchemaResolver {
 
     address public attester;
 
-    function initialize(IEAS eas, address _attester) public initializer {
-        UpgradableSchemaResolver.initialize(eas);
+    function initialize(
+        IEAS eas,
+        address _owner,
+        address _attester
+    ) public initializer {
+        UpgradableSchemaResolver.initialize(eas, _owner);
         attester = _attester;
 
         emit AttesterChanged(_attester);
@@ -21,6 +25,8 @@ contract EntitiesResolver is UpgradableSchemaResolver {
 
     function setAttester(address _attester) public onlyOwner {
         attester = _attester;
+
+        emit AttesterChanged(_attester);
     }
 
     function onAttest(

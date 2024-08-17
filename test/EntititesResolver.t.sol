@@ -31,6 +31,7 @@ contract EntitiesResolverTest is Test {
             abi.encodeWithSelector(
                 EntitiesResolver.initialize.selector,
                 eas,
+                address(this),
                 address(this)
             )
         );

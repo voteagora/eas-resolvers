@@ -5,9 +5,12 @@ import {ISchemaResolver} from "eas-contracts/resolver/ISchemaResolver.sol";
 import {IEAS} from "eas-contracts/IEAS.sol";
 import {Attestation, InvalidLength, AccessDenied, uncheckedInc} from "eas-contracts/Common.sol";
 import {InvalidEAS} from "eas-contracts/Common.sol";
-import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-abstract contract UpgradableSchemaResolver is Initializable, ISchemaResolver {
+abstract contract UpgradableSchemaResolver is
+    OwnableUpgradeable,
+    ISchemaResolver
+{
     error InsufficientValue();
     error NotPayable();
 
@@ -31,8 +34,9 @@ abstract contract UpgradableSchemaResolver is Initializable, ISchemaResolver {
 
     /// @dev Initializes the resolver implementation.
     /// @param eas The address of the global EAS contract.
-    function initialize(IEAS eas) public initializer {
+    function initialize(IEAS eas, address _owner) public initializer {
         __SchemaResolver_init(eas);
+        __Ownable_init(_owner);
     }
 
     /// @dev Re-initializes the `SchemaResolver` contract (internal).
