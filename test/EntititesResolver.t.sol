@@ -99,4 +99,12 @@ contract EntitiesResolverTest is Test {
             })
         );
     }
+
+    function test_setAttester() public {
+        vm.expectEmit();
+
+        entitiesResolver.setAttester(address(Utils.alice));
+
+        emit EntitiesResolver.AttesterChanged(address(Utils.alice));
+    }
 }

@@ -8,10 +8,18 @@ import {Attestation} from "eas-contracts/Common.sol";
 contract EntitiesResolver is UpgradableSchemaResolver {
     error InvalidAttester();
 
+    event AttesterChanged(address indexed attester);
+
     address public attester;
 
     function initialize(IEAS eas, address _attester) public initializer {
         UpgradableSchemaResolver.initialize(eas);
+        attester = _attester;
+
+        emit AttesterChanged(_attester);
+    }
+
+    function setAttester(address _attester) public onlyOwner {
         attester = _attester;
     }
 
