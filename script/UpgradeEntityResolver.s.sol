@@ -31,11 +31,7 @@ contract UpgradeEntityResolverScript is Script {
         proxyAdmin.upgradeAndCall(
             ITransparentUpgradeableProxy(address(proxy)),
             address(implementation),
-            abi.encodeWithSelector(
-                EntitiesResolver.initialize.selector,
-                eas,
-                initialAttester
-            )
+            bytes("")
         );
 
         vm.stopBroadcast();
