@@ -6,8 +6,10 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <tr>
 <th>Network</th>
 <th>Entity resolver</th>
+<th>Entity Resolver proxy admin</th>
 <th>Entity schema</th>
 <th>Organization Metadata resolver</th>
+<th>Organization Metadata resolver proxy admin</th>
 <th>Organization Metadata schema</th>
 </tr>
 <tr>
@@ -19,10 +21,12 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 </tr>
 <tr>
 <td>Sepolia (Test)</td>
-<td><code>0x69dAbd289CF35263b3940B7a0b495B10f9F2e254</code></td>
-<td><code>0x4222d050383fadf18ce0ccd8f37a569a655c05e07d6bdc638c1472da01842ef8</code></td>
-<td><code>0xf9F9CF7021bA416F7D65D07b484Bd71396cBfDd8</code></td>
-<td><code>0xd3d49ab0975ce911ba1c6ef3b1bef3d454bbc9abf64500e37bebde67527fe5e9</code></td>
+<td><code>0xfA93d7364fCe1056EAab591DF1C0b01aBCa37461</code></td>
+<td><code>0xaDAAca76f4825F1b7241E05A0657Daec4EcFfe39</code></td>
+<td><code>0x5eefb359bc596699202474fd99e92172d1b788aa34280f385c498875d1bfb424</code></td>
+<td><code>0x0287cf4e225B02D42D90d626C6233cf7F0c7103d</code></td>
+<td><code>0xDdD8B952aE933584F3caEBfFCDB2D5Fffdf86235</code></td>
+<td><code>0x9c181f1e683fd2d79287d0b4fe1832f571fb4f5815ff9c1d0ed5b7a9bd067a03</code></td>
 
 </tr>
 </table>

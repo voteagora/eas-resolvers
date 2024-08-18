@@ -12,6 +12,7 @@ contract DeployOrganizationMetadataResolverScript is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         address initialAttester = 0xA18D0226043A76683950f3BAabf0a87Cfb32E1Cb;
+        address owner = 0xEA64B234316728f1BFd3b7cDCc1EAf0066D8E055;
 
         EAS eas = EAS(0xC2679fBD37d54388Ce493F1DB75320D236e1815e);
 
@@ -24,6 +25,7 @@ contract DeployOrganizationMetadataResolverScript is Script {
             abi.encodeWithSelector(
                 EntitiesResolver.initialize.selector,
                 eas,
+                owner,
                 initialAttester
             )
         );

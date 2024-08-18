@@ -9,7 +9,7 @@ contract CreateEntityEASSchemaScript is Script {
     SchemaRegistry schemaRegistry =
         SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
     EntitiesResolver entitiesResolver =
-        EntitiesResolver(payable(0x69dAbd289CF35263b3940B7a0b495B10f9F2e254));
+        EntitiesResolver(payable(0xfA93d7364fCe1056EAab591DF1C0b01aBCa37461));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");

@@ -9,7 +9,7 @@ contract CreateOrganizationEASSchemaScript is Script {
     SchemaRegistry schemaRegistry =
         SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
     EntitiesResolver entitiesResolver =
-        EntitiesResolver(payable(0xf9F9CF7021bA416F7D65D07b484Bd71396cBfDd8));
+        EntitiesResolver(payable(0x0287cf4e225B02D42D90d626C6233cf7F0c7103d));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
