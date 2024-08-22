@@ -6,10 +6,11 @@ import {SchemaRegistry} from "eas-contracts/SchemaRegistry.sol";
 import {EntitiesResolver} from "../src/EntitiesResolver.sol";
 
 contract CreateOrganizationEASSchemaScript is Script {
+    // Optimism Mainnet
     SchemaRegistry schemaRegistry =
-        SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
+        SchemaRegistry(payable(0x4200000000000000000000000000000000000020));
     EntitiesResolver entitiesResolver =
-        EntitiesResolver(payable(0x0287cf4e225B02D42D90d626C6233cf7F0c7103d));
+        EntitiesResolver(payable(0x630A6A268191c654ce084aAd2D7910fF651e0797));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");

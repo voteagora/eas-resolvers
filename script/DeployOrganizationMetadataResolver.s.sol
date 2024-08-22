@@ -11,17 +11,18 @@ contract DeployOrganizationMetadataResolverScript is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        address initialAttester = 0xA18D0226043A76683950f3BAabf0a87Cfb32E1Cb;
-        address owner = 0xEA64B234316728f1BFd3b7cDCc1EAf0066D8E055;
+        address initialAttester = 0xF6872D315CC2E1AfF6abae5dd814fd54755fE97C;
+        address owner = 0xE7402214476843d4b59F455AB048ac71225D30D6;
 
-        EAS eas = EAS(0xC2679fBD37d54388Ce493F1DB75320D236e1815e);
+        // Optimism Mainnet
+        EAS eas = EAS(0x4200000000000000000000000000000000000021);
 
         // Deploy ProjectAttesterResolver contract
         EntitiesResolver implementation = new EntitiesResolver();
 
         TransparentUpgradeableProxy proxy = new TransparentUpgradeableProxy(
             address(implementation),
-            0xA18D0226043A76683950f3BAabf0a87Cfb32E1Cb,
+            0xE7402214476843d4b59F455AB048ac71225D30D6,
             abi.encodeWithSelector(
                 EntitiesResolver.initialize.selector,
                 eas,
