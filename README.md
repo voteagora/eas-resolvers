@@ -5,10 +5,10 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <table>
 
 <tr>
-<tr>Name</tr>
-<tr>Resolver</tr>
-<tr>Proxy Admin</tr>
-<tr>Schema</tr>
+<th>Name</th>
+<th>Resolver</th>
+<th>Proxy Admin</th>
+<th>Schema</th>
 </tr>
 
 <tr>
