@@ -39,6 +39,12 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <td><code>0xa6722f13874C3CE97b4EDF6fc956bB44b656ADdA</code></td>
 <td><code></code></td>
 </tr>
+<tr>
+<td>Badgeholders (Optimism Mainnet)</td>
+<td><code>0x5Ce933108e55481C17d1F586f0e21A426ae483b6</code></td>
+<td><code>0x2f08A08f788510c0Ba5482158caCa02Ca3de9FD7</code></td>
+<td><code></code></td>
+</tr>
 </table>
 
 ## Usage
