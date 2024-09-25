@@ -8,10 +8,10 @@ import {EntitiesResolver} from "../src/EntitiesResolver.sol";
 contract CreateApplicationEASSchemaScript is Script {
     // Optimism Mainnet
     SchemaRegistry schemaRegistry =
-        // SchemaRegistry(payable(0x4200000000000000000000000000000000000020));
-        SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
+        SchemaRegistry(payable(0x4200000000000000000000000000000000000020));
+    // SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
     EntitiesResolver entitiesResolver =
-        EntitiesResolver(payable(0xcE372a175fb2769fe6ceF3fd24f31fE6f3AF59cc));
+        EntitiesResolver(payable(0x5009C2b4e8083fE971446E6e20d79659cFB347BF));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
@@ -19,7 +19,7 @@ contract CreateApplicationEASSchemaScript is Script {
 
         // Create new EAS schema
         bytes32 schemaId = schemaRegistry.register(
-            "string round, uint256 farcasterID, bytes32 metadatasnapshotRefUID, uint8 metadataType, string metadataUrl",
+            "string round, uint256 farcasterID, bytes32 metadataSnapshotRefUID, uint8 metadataType, string metadataUrl",
             entitiesResolver,
             true
         );
