@@ -2,7 +2,7 @@
 pragma solidity ^0.8.26;
 
 import {Script, console} from "forge-std/Script.sol";
-import {EntitiesResolver} from "../src/EntitiesResolver.sol";
+import {ProjectModuleResolver} from "../src/ProjectModuleResolver.sol";
 import {EAS} from "eas-contracts/EAS.sol";
 import {TransparentUpgradeableProxy} from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
 
@@ -15,18 +15,18 @@ contract DeployVerifiedContractResolverScript is Script {
         address owner = 0xE7402214476843d4b59F455AB048ac71225D30D6;
 
         // Optimism Mainnet
-        EAS eas = EAS(0x4200000000000000000000000000000000000021);
+        // EAS eas = EAS(0x4200000000000000000000000000000000000021);
         // Sepolia
-        // EAS eas = EAS(0xC2679fBD37d54388Ce493F1DB75320D236e1815e);
+        EAS eas = EAS(0xC2679fBD37d54388Ce493F1DB75320D236e1815e);
 
         // Deploy ProjectAttesterResolver contract
-        EntitiesResolver implementation = new EntitiesResolver();
+        ProjectModuleResolver implementation = new ProjectModuleResolver();
 
         TransparentUpgradeableProxy proxy = new TransparentUpgradeableProxy(
             address(implementation),
             owner,
             abi.encodeWithSelector(
-                EntitiesResolver.initialize.selector,
+                ProjectModuleResolver.initialize.selector,
                 eas,
                 owner,
                 initialAttester

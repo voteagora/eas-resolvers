@@ -89,9 +89,9 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 </tr>
 <tr>
 <td>Verified Contract (Sepolia)</td>
-<td><code>0xc899e77ae8f7A7aBd8d1763004fA26A7a03b3cf3</code></td>
-<td><code>0xB23e71D01226572eab0ee7586c22E2981Ab45476</code></td>
-<td><code>0x11422af5e6301e1c1e133178c02bcfc1cf00fb80b0df11c0bce0c31391aef1a0</code></td>
+<td><code>0x6Ecb721A75a0157E41B706b442D9a09202127D37</code></td>
+<td><code>0x621178d144d2f9b4A062C8fBDf68F67FE39DeBd0</code></td>
+<td><code>0x51441568c18279615127e5c78591126381ac7eca23a92e3820992227fef5e3bf</code></td>
 </tr>
 <tr>
 <td>Verified Contract (Optimism Mainnet)</td>
@@ -126,3 +126,11 @@ forge script --rpc-url $OPTIMISM_RPC_URL --broadcast -vvvv script/CreateVerified
 
 You need to replace `SEPOLIA_RPC_URL` with the RPC url to which you want to deploy the contract.
 Also, you'll need to set `PRIVATE_KEY` environment variable to the private key of the account that will deploy the contract.
+
+### Upgrade
+
+To upgrade the ProjectModuleResolver to the new implementation, run the following command:
+
+```shell
+forge script --rpc-url $OPTIMISM_RPC_URL --broadcast -vvvv script/UpgradeEntityResolverToProjectModule.sol:UpgradeEntityResolverToProjectModuleScript
+```
