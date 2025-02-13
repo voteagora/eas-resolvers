@@ -91,13 +91,13 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <td>Verified Contract (Sepolia)</td>
 <td><code>0x6Ecb721A75a0157E41B706b442D9a09202127D37</code></td>
 <td><code>0x621178d144d2f9b4A062C8fBDf68F67FE39DeBd0</code></td>
-<td><code>0x51441568c18279615127e5c78591126381ac7eca23a92e3820992227fef5e3bf</code></td>
+<td><code>0x54e40d132781e0533ec5119203f385869a6d24ad94d7dfb3eebc77fdf12ca0e0</code></td>
 </tr>
 <tr>
 <td>Verified Contract (Optimism Mainnet)</td>
 <td><code>0x609b5e82CD85787101Ad05426fFfA5958521F5c5</code></td>
 <td><code>0xC62913d3c526baa0e20bac67BAf9E383137CDAE2</code></td>
-<td><code>0x91f65108926238b96f03f1f5c2e7e4326217b03bf24d0fee186de868d6a68c94</code></td>
+<td><code>0x84e0d89417bea94fe2501edaa9a2c8cd051f41514a56c9893471387f47dcead2</code></td>
 </tr>
 </table>
 
