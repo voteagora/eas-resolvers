@@ -21,7 +21,7 @@ contract CreateVerifiedContractEASSchemaScript is Script {
 
         // Create new EAS schema
         bytes32 schemaId = schemaRegistry.register(
-            "address contract, uint8 chainId, address deployer, bytes32 deploymentTx, bytes signature, uint8 verificationChainId, uint256 farcasterID",
+            "address contract, uint32 chainId, address deployer, bytes32 deploymentTx, bytes signature, uint32 verificationChainId, uint256 farcasterID",
             entitiesResolver,
             true
         );
