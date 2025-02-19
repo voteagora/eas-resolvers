@@ -46,7 +46,7 @@ contract ProjectModuleResolver is UpgradableSchemaResolver {
             (uint256, string)
         );
 
-        if (keccak256(abi.encodePacked(entityType)) != keccak256("project")) {
+        if (keccak256(abi.encodePacked(entityType)) == keccak256("organization"))  {
             revert InvalidEntityType();
         }
 
