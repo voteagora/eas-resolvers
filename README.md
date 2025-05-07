@@ -49,7 +49,7 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <td>Application (Sepolia)</td>
 <td><code>0xcE372a175fb2769fe6ceF3fd24f31fE6f3AF59cc</code></td>
 <td><code>0x88e3264Deae3536f66e9157058C4574eA71c7643</code></td>
-<td><code>0xb50a1973d1aab9206545cd1da93e0dc1b5314989928bb35f58762020e2027154</code></td>
+<td><code>0x45323e3bd4d0931becfbdc26c8ca36173108abc9478dcc40475dacb7c34cfa3d</code></td>
 </tr>
 <tr>
 <td>Application (Optimism Mainnet)</td>
@@ -133,7 +133,7 @@ Each network has a specific deployment script. For example, to deploy to the Sep
 
 ```shell
 forge script --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv script/DeployProjectMetadataResolver.s.sol:DeployProjectMetadataResolverScript
-forge script --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv script/CreateOrganizationEASSchema.s.sol:CreateOrganizationEASSchemaScript
+forge script --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv script/CreateApplicationEASSchema.s.sol:CreateApplicationEASSchemaScript
 ```
 
 You need to replace `SEPOLIA_RPC_URL` with the RPC url to which you want to deploy the contract.
