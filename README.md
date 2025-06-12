@@ -61,7 +61,12 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <td>Citizens (Optimism Mainnet)</td>
 <td><code>0xD08dCD25e2731Ce78B74A48c215ca2682B6C3EeA</code></td>
 <td><code>0xa6722f13874C3CE97b4EDF6fc956bB44b656ADdA</code></td>
-<td><code></code></td>
+<td><code>0xc35634c4ca8a54dce0a2af61a9a9a5a3067398cb3916b133238c4f6ba721bc8a</code></td>
+</tr>
+<td>CitizenWalletChange (Optimism Mainnet)</td>
+<td><code>0x60E3B3C7df1237183C69AB13F3D5217e83a0f076</code></td>
+<td><code>0x57f2269d4B27dDBeFC3f36C11F984A8675512ED0</code></td>
+<td><code>0xa55599e411f0eb310d47357e7d6064b09023e1d6f8bcb5504c051572a37db5f7</code></td>
 </tr>
 <tr>
 <td>Badgeholders (Optimism Mainnet)</td>
