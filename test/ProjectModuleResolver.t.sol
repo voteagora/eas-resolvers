@@ -29,8 +29,6 @@ contract ProjectModuleResolverTest is Test {
         // Deploy EAS contracts
         registry = new SchemaRegistry();
         eas = EAS(0xC2679fBD37d54388Ce493F1DB75320D236e1815e);
-
-        console2.log("eas", eas);
         
         // Deploy implementation and proxy
         ProjectModuleResolver implementation = new ProjectModuleResolver();
