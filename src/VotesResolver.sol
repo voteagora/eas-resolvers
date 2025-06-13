@@ -11,7 +11,7 @@ contract VotesResolver is UpgradableSchemaResolver {
     error VoterMustBeAttester();
     error InvalidVoterAttestation();
 
-    event VoteCast(uint256 indexed proposalId, address indexed voter, bytes32 indexed refUID, bytes data);
+    event VoteCast(uint256 indexed proposalId, address indexed voter, bytes32 indexed refUID, bytes data, bytes refData);
 
     bytes32 public VOTER_SCHEMA_UID;
 
@@ -52,7 +52,7 @@ contract VotesResolver is UpgradableSchemaResolver {
 	
         _countVote(attestation.recipient, proposalId);
 
-        emit VoteCast(proposalId, attestation.recipient, attestation.refUID, attestation.data);
+        emit VoteCast(proposalId, attestation.recipient, attestation.refUID, attestation.data, citizenAttestation.data);
 	
 	      return true;
     }
