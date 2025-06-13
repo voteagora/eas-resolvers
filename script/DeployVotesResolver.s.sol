@@ -20,13 +20,16 @@ contract DeployVotesResolverScript is Script {
         // Deploy VotesResolver contract
         VotesResolver implementation = new VotesResolver();
 
+        bytes32 voterSchemaUID = 0x3acfc8404d72c7112ef6f957f0fcf0a5c3e026b586c101ea25355d4666a00362;
+
         TransparentUpgradeableProxy proxy = new TransparentUpgradeableProxy(
             address(implementation),
             owner,
             abi.encodeWithSelector(
-                VotesResolver.initializeVotesResolver.selector,
+                VotesResolver.initialize.selector,
                 eas,
-                owner
+                owner,
+                voterSchemaUID
             )
         );
 
