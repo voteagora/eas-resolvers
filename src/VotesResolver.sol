@@ -13,13 +13,17 @@ contract VotesResolver is UpgradableSchemaResolver {
 
     event VoteCast(uint256 indexed proposalId, address indexed voter, bytes32 indexed refUID, bytes data);
 
+    bytes32 public VOTER_SCHEMA_UID;
+
     mapping(uint256 => mapping(address => bool)) internal _proposalVotes;
 
-    function initializeVotesResolver(
+    function initialize(
         IEAS eas,
-        address _owner
+        address _owner,
+        bytes32 _voterSchemaUID
     ) public initializer {
         UpgradableSchemaResolver.initialize(eas, _owner);
+        VOTER_SCHEMA_UID = _voterSchemaUID;
     }
 
     function onAttest(
@@ -32,7 +36,7 @@ contract VotesResolver is UpgradableSchemaResolver {
 
         Attestation memory citizenAttestation = _eas.getAttestation(attestation.refUID);
 	
-        if (citizenAttestation.revocationTime != 0 || citizenAttestation.recipient != attestation.recipient) {
+        if (citizenAttestation.schema != VOTER_SCHEMA_UID || citizenAttestation.revocationTime != 0 || citizenAttestation.recipient != attestation.recipient) {
           revert InvalidVoterAttestation();
         }
 

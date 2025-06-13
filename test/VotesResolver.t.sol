@@ -26,13 +26,20 @@ contract VotesResolverTest is Test {
         eas = new EAS(schemaRegistry);
         VotesResolver implementation = new VotesResolver();
 
+        voterSchemaUID = schemaRegistry.register(
+            "uint256 farcasterID, string type",
+            ISchemaResolver(address(0)), // no resolver
+            true
+        );
+
         TransparentUpgradeableProxy proxy = new TransparentUpgradeableProxy(
             address(implementation),
             address(this),
             abi.encodeWithSelector(
-                VotesResolver.initializeVotesResolver.selector,
+                VotesResolver.initialize.selector,
                 eas,
-                address(this)
+                address(this),
+                voterSchemaUID
             )
         );
 
@@ -42,11 +49,6 @@ contract VotesResolverTest is Test {
         votesSchemaUID = schemaRegistry.register(
             "uint256 proposalId, string type",
             votesResolver,
-            true
-        );
-        voterSchemaUID = schemaRegistry.register(
-            "uint256 farcasterID, string type",
-            ISchemaResolver(address(0)), // no resolver
             true
         );
 
@@ -194,6 +196,47 @@ contract VotesResolverTest is Test {
                     expirationTime: 0,
                     revocable: true,
                     refUID: bobVoterAttestationUID,
+                    data: abi.encode(proposalId, "Project"),
+                    value: 0
+                })
+            })
+        );
+    }
+
+    function test_InvalidVoterAttestation_WrongSchema() public {
+        // Register a different schema
+        bytes32 wrongSchemaUID = schemaRegistry.register(
+            "uint256 wrongID, string type",
+            ISchemaResolver(address(0)), // no resolver
+            true
+        );
+
+        // Issue an attestation with the wrong schema
+        bytes32 wrongAttestationUID = eas.attest(
+            AttestationRequest({
+                schema: wrongSchemaUID,
+                data: AttestationRequestData({
+                    recipient: alice,
+                    expirationTime: 0,
+                    revocable: true,
+                    refUID: 0x0,
+                    data: abi.encode(1, "Project"),
+                    value: 0
+                })
+            })
+        );
+
+        // Try to vote using the wrong schema attestation
+        vm.prank(alice);
+        vm.expectRevert(VotesResolver.InvalidVoterAttestation.selector);
+        eas.attest(
+            AttestationRequest({
+                schema: votesSchemaUID,
+                data: AttestationRequestData({
+                    recipient: alice,
+                    expirationTime: 0,
+                    revocable: true,
+                    refUID: wrongAttestationUID,
                     data: abi.encode(proposalId, "Project"),
                     value: 0
                 })
