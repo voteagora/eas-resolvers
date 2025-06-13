@@ -17,7 +17,7 @@ contract CreateVotesEASSchemaScript is Script {
     SchemaRegistry schemaRegistry =
         SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
     VotesResolver votesResolver =
-        VotesResolver(payable(0xC81c29694b15B8E84d3f0418F226a267aC2a6B96));
+        VotesResolver(payable(0x3b18867BA92E540817df6E112FF80152e1747F95));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
