@@ -118,9 +118,14 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 </tr>
 <tr>
 <td>Votes (Sepolia)</td>
-<td><code>0x3b18867BA92E540817df6E112FF80152e1747F95</code></td>
-<td><code>0x89b30C6Ad61C145935f02E7D88725A5Af9559D0a</code></td>
+<td><code>0xEbEA360971ac2A16Ed3eC3fb954552F55fc288C6</code></td>
+<td><code>0x02d2B337D37C4949BA27F349a436cce55C3a9944</code></td>
 <td><code>0x6b6f133272adcd61abbbf70761914caed1448061059a7fc7464c9d2e24b4159e</code></td>
+</tr>
+<td>Votes (Optimism Mainnet)</td>
+<td><code>0x147Ef4227718daa8C1786F91997C6ce0574D44aD</code></td>
+<td><code>0xB2F02731c2bf667d1a172856fa7d8827c1eAa05a</code></td>
+<td><code>0xc113116804c90320b3d059ff8eed8b7171e3475f404f65828bbbe260dce15a99</code></td>
 </tr>
 </table>
 
@@ -143,8 +148,8 @@ forge test
 Each network has a specific deployment script. For example, to deploy to the Sepolia network (equivalent to test network), run the following command:
 
 ```shell
-forge script --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv script/DeployVotesResolver.s.sol:DeployVotesResolverScript
-forge script --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv script/CreateVotesEASSchema.s.sol:CreateVotesEASSchemaScript
+forge script --rpc-url $OPTIMISM_RPC_URL --broadcast --verify -vvvv script/DeployVotesResolver.s.sol:DeployVotesResolverScript
+forge script --rpc-url $OPTIMISM_RPC_URL --broadcast --verify -vvvv script/CreateVotesEASSchema.s.sol:CreateVotesEASSchemaScript
 ```
 
 You need to replace `SEPOLIA_RPC_URL` with the RPC url to which you want to deploy the contract.

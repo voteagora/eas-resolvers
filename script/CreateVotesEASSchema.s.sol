@@ -8,16 +8,17 @@ import {VotesResolver} from "../src/VotesResolver.sol";
 
 contract CreateVotesEASSchemaScript is Script {
     // // Optimism Mainnet
-    // SchemaRegistry schemaRegistry =
-    //     SchemaRegistry(payable(0x4200000000000000000000000000000000000020));
-    // // SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
+    SchemaRegistry schemaRegistry =
+        SchemaRegistry(payable(0x4200000000000000000000000000000000000020));
+    VotesResolver votesResolver =
+        VotesResolver(payable(0x147Ef4227718daa8C1786F91997C6ce0574D44aD));
 
 
     // Sepolia
-    SchemaRegistry schemaRegistry =
-        SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
-    VotesResolver votesResolver =
-        VotesResolver(payable(0x3b18867BA92E540817df6E112FF80152e1747F95));
+    // SchemaRegistry schemaRegistry =
+    //     SchemaRegistry(payable(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0));
+    // VotesResolver votesResolver =
+    //     VotesResolver(payable(0xEbEA360971ac2A16Ed3eC3fb954552F55fc288C6));
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
