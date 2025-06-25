@@ -127,6 +127,12 @@ Optimism identity protocol is powered by Ethereum Attestation Service (EAS). Cur
 <td><code>0xB2F02731c2bf667d1a172856fa7d8827c1eAa05a</code></td>
 <td><code>0xc113116804c90320b3d059ff8eed8b7171e3475f404f65828bbbe260dce15a99</code></td>
 </tr>
+<tr>
+<td>Proposals (Optimism Mainnet)</td>
+<td><code>0x2d69e3Fa434898999FaEfe0EdBc8a714C4a0fE0F</code></td>
+<td><code>0xA1ff060e02370F0Be0FB1A5133EbdC0e7747b4D9</code></td>
+<td><code>0xff0b916851c1c5507406cfcaa60e5d549c91b7f642eb74e33b88143cae4b47d0</code></td>
+</tr>
 </table>
 
 ## Usage
@@ -148,7 +154,7 @@ forge test
 Each network has a specific deployment script. For example, to deploy to the Sepolia network (equivalent to test network), run the following command:
 
 ```shell
-forge script --rpc-url $OPTIMISM_RPC_URL --broadcast --verify -vvvv script/DeployVotesResolver.s.sol:DeployVotesResolverScript
+forge script --rpc-url $OPTIMISM_RPC_URL --broadcast --verify -vvvv script/DeployProposalsResolver.s.sol:DeployProposalsResolverScript
 forge script --rpc-url $OPTIMISM_RPC_URL --broadcast --verify -vvvv script/CreateVotesEASSchema.s.sol:CreateVotesEASSchemaScript
 ```
 
