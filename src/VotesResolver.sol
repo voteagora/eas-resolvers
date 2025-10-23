@@ -8,10 +8,16 @@ import {Attestation} from "eas-contracts/Common.sol";
 contract VotesResolver is UpgradableSchemaResolver {
     error InvalidAttester();
     error AlreadyVoted();
-    error VoterMustBeAttester();
-    error InvalidVoterAttestation();
+    error VotingNotStarted();
+    error VotingEnded();
 
-    event VoteCast(uint256 indexed proposalId, address indexed voter, bytes32 indexed refUID, bytes data, bytes refData);
+    event VoteCast(
+        uint256 indexed proposalId,
+        address indexed voter,
+        bytes32 indexed refUID,
+        bytes data,
+        bytes refData
+    );
 
     bytes32 public VOTER_SCHEMA_UID;
 
@@ -30,31 +36,45 @@ contract VotesResolver is UpgradableSchemaResolver {
         Attestation calldata attestation,
         uint256 /*value*/
     ) internal override returns (bool) {
-        if (attestation.recipient != attestation.attester) {
-            revert VoterMustBeAttester();
-        }
-
-        Attestation memory citizenAttestation = _eas.getAttestation(attestation.refUID);
-	
-        if (citizenAttestation.schema != VOTER_SCHEMA_UID || citizenAttestation.revocationTime != 0 || citizenAttestation.recipient != attestation.recipient) {
-          revert InvalidVoterAttestation();
-        }
-
-        // Decode the data into the schema
-        (uint256 proposalId, ) = abi.decode(
+        (uint256 proposalId, , ) = abi.decode(
             attestation.data,
-            (uint256, string)
+            (uint256, int8, string)
         );
 
-        if (_proposalVotes[proposalId][attestation.recipient]) {
+        address voter = attestation.attester;
+
+        Attestation memory proposalAttestation = _eas.getAttestation(
+            attestation.refUID
+        );
+
+        (, , , uint64 startts, uint64 endts, ) = abi.decode(
+            proposalAttestation.data,
+            (uint256, string, string, uint64, uint64, string)
+        );
+
+        if (block.timestamp < startts) {
+            revert VotingNotStarted();
+        }
+
+        if (block.timestamp > endts) {
+            revert VotingEnded();
+        }
+
+        if (_proposalVotes[proposalId][voter]) {
             revert AlreadyVoted();
         }
-	
-        _countVote(attestation.recipient, proposalId);
 
-        emit VoteCast(proposalId, attestation.recipient, attestation.refUID, attestation.data, citizenAttestation.data);
-	
-	      return true;
+        _countVote(voter, proposalId);
+
+        emit VoteCast(
+            proposalId,
+            voter,
+            attestation.refUID,
+            attestation.data,
+            proposalAttestation.data
+        );
+
+        return true;
     }
 
     function _countVote(address recipient, uint256 proposalId) internal {
